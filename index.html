@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>布吉 Scouting · 19–22 Nov 2026</title>
+<style>
+  :root {
+    --bg: #f7f3ee;
+    --surface: #fffcf8;
+    --ink: #2c241c;
+    --muted: #6b5e52;
+    --line: #e5dcd2;
+    --accent: #8b5e3c;
+    --accent-soft: #c4a484;
+    --chip-confirmed: #1f6b4a;
+    --chip-confirmed-bg: #e6f5ee;
+    --chip-soft: #8a6a1f;
+    --chip-soft-bg: #fbf3d8;
+    --chip-tbd: #3d5a80;
+    --chip-tbd-bg: #e8eef6;
+    --chip-optional: #6b5e52;
+    --chip-optional-bg: #efeae4;
+    --chip-skip: #8b3a3a;
+    --chip-skip-bg: #f8e8e8;
+    --shadow: 0 1px 3px rgba(44,36,28,.06), 0 8px 24px rgba(44,36,28,.04);
+    --radius: 12px;
+    --nav-h: 56px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 15px;
+  }
+  a { color: var(--accent); }
+  a:hover { color: #6e482e; }
+
+  /* Sticky nav */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--nav-h);
+    background: rgba(255,252,248,.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .topnav a {
+    flex: 0 0 auto;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .topnav a:hover, .topnav a:focus {
+    background: #f0e8df;
+    color: var(--ink);
+  }
+  .topnav .brand {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 4px;
+  }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 16px 48px;
+  }
+
+  header.hero {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 24px;
+    margin-bottom: 20px;
+  }
+  header.hero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(1.45rem, 3.5vw, 1.9rem);
+    font-weight: 740;
+    letter-spacing: -.02em;
+    color: var(--ink);
+  }
+  header.hero .sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 14px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  section.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px 20px;
+    margin-bottom: 18px;
+  }
+  section.card h2 {
+    margin: 0 0 14px;
+    font-size: 1.2rem;
+    color: var(--accent);
+    border-bottom: 2px solid #efe6dc;
+    padding-bottom: 8px;
+  }
+  section.card h3 {
+    margin: 20px 0 10px;
+    font-size: 1.02rem;
+    color: var(--ink);
+  }
+  section.card h3:first-of-type { margin-top: 4px; }
+  p, li { color: var(--ink); }
+  .note {
+    background: #faf6f1;
+    border-left: 3px solid var(--accent-soft);
+    padding: 10px 14px;
+    margin: 10px 0 14px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .invite {
+    background: #faf6f1;
+    border: 1px dashed var(--accent-soft);
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: pre-wrap;
+    color: var(--ink);
+  }
+
+  /* Chips */
+  .chip {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+    vertical-align: middle;
+    line-height: 1.4;
+  }
+  .chip-confirmed { background: var(--chip-confirmed-bg); color: var(--chip-confirmed); }
+  .chip-soft { background: var(--chip-soft-bg); color: var(--chip-soft); }
+  .chip-tbd { background: var(--chip-tbd-bg); color: var(--chip-tbd); }
+  .chip-optional { background: var(--chip-optional-bg); color: var(--chip-optional); }
+  .chip-skip { background: var(--chip-skip-bg); color: var(--chip-skip); }
+
+  /* Tables */
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 8px 0 12px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    min-width: 560px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    background: #f3ebe3;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: none;
+    white-space: nowrap;
+  }
+  tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #fbf8f4; }
+  tbody tr:hover { background: #f5efe8; }
+  td.price { font-weight: 700; color: var(--accent); white-space: nowrap; }
+  .overview-table { min-width: 0; }
+  .overview-table th { width: 28%; white-space: normal; }
+  .star { color: #b8860b; font-weight: 800; }
+
+  ul.compact { margin: 8px 0; padding-left: 1.2em; }
+  ul.compact li { margin: 4px 0; }
+
+  footer.page-foot {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12.5px;
+    padding: 20px 12px 8px;
+    border-top: 1px solid var(--line);
+    margin-top: 8px;
+  }
+  footer.page-foot code {
+    font-size: 11.5px;
+    background: #efeae4;
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 14px 10px 36px; }
+    header.hero { padding: 20px 16px; }
+    section.card { padding: 16px 12px; }
+    table { font-size: 12.5px; min-width: 480px; }
+    th, td { padding: 8px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Section navigation">
+  <a class="brand" href="#top">布吉 · Nov</a>
+  <a href="#overview">Overview</a>
+  <a href="#stay">Stay</a>
+  <a href="#flights">Flights</a>
+  <a href="#days">Days</a>
+  <a href="#meets">Meets</a>
+  <a href="#food">Food &amp; Spa</a>
+  <a href="#water">Water</a>
+  <a href="#actions">Actions</a>
+  <a href="#gaps">Gaps</a>
+</nav>
+
+<div class="wrap" id="top">
+
+<header class="hero">
+  <h1>布吉 Scouting · 19–22 Nov 2026</h1>
+  <p class="sub"><strong>Kam To Chan + Stephanie Lau</strong> · HKG ↔ HKT · 2 adults<br>
+  建立：2026-10-20（Asia/Hong_Kong）</p>
+  <div class="meta-row">
+    <span class="chip chip-soft">Soft plan</span>
+    <span class="chip chip-tbd">會面 TBD to invite</span>
+    <span class="chip chip-optional">航班／房未訂</span>
+  </div>
+</header>
+
+<!-- 1. Overview -->
+<section class="card" id="overview">
+  <h2>1. Overview strip</h2>
+  <div class="table-wrap">
+    <table class="overview-table">
+      <tbody>
+        <tr><th>Dates</th><td><strong>Thu 19 Nov → Sun 22 Nov 2026</strong>（3 晚）</td></tr>
+        <tr><th>Pax</th><td>Kam + Stephanie（2 adults）</td></tr>
+        <tr><th>Base</th><td>Kamala／The Naka Phuket 一帶</td></tr>
+        <tr><th>Goals（priority）</th><td>① Relax／tourism　② Feel The Naka wedding-venue vibe　③ Meet planners／vendors＋trial makeup nearby</td></tr>
+        <tr><th>Water</th><td><span class="chip chip-optional">Optional</span>（非必須）</td></tr>
+        <tr><th>Vendor source</th><td><code>phuket_vendor_market_scan_2026-10-20.md</code>；Dickyson DIY 拆解見 <code>duke_intimate_diy_vendors.md</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Status legend</h3>
+  <div class="meta-row" style="margin-bottom:8px">
+    <span class="chip chip-confirmed">Confirmed</span>
+    <span class="chip chip-soft">Soft</span>
+    <span class="chip chip-tbd">TBD meet</span>
+    <span class="chip chip-optional">Optional</span>
+    <span class="chip chip-skip">Skip</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tag</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip chip-confirmed">Confirmed</span></td><td>已訂／已確認</td></tr>
+        <tr><td><span class="chip chip-soft">Soft</span></td><td>建議行程，等 Kam 拍板</td></tr>
+        <tr><td><span class="chip chip-tbd">TBD meet</span></td><td>聯絡真實；會面未邀請／未回</td></tr>
+        <tr><td><span class="chip chip-optional">Optional</span></td><td>可删可換</td></tr>
+        <tr><td><span class="chip chip-skip">Skip</span></td><td>唔跟／唔放呢程</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 2. Stay -->
+<section class="card" id="stay">
+  <h2>2. Stay plan（建議）</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Night</th><th>Date</th><th>Where</th><th>Room type hint</th><th>Why</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td>Thu 19</td>
+          <td><strong>The Naka Phuket</strong></td>
+          <td><strong>Napa Suite</strong>（58 m²，Spa Tower；outdoor bathtub；連 Napa Spa／gym）<strong>或</strong> <strong>One Bedroom Pool Villa Partial Seaview</strong>（205 m² entry pool villa）</td>
+          <td>抵步即感受場地氛圍；唔揀最貴 Beachfront／High Bay Signature／multi-bed</td>
+          <td><span class="chip chip-soft">Soft</span> · 查價待確認</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td>Fri 20</td>
+          <td><strong>The Naka Phuket</strong></td>
+          <td>同上 mid-tier</td>
+          <td>全日 walk Green Lawn／Wiwa／Meka／私人沙灘；方便約 Kamala vendor</td>
+          <td><span class="chip chip-soft">Soft</span> · 查價待確認</td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td>Sat 21</td>
+          <td><strong>Kamala village mid-range</strong>（非 Naka）</td>
+          <td>普通 4★／boutique（例：Kamala beachfront mid／Surin soft）</td>
+          <td>步行美食＋按摩；Sunday 早走較易；慳一晚 Naka 價</td>
+          <td><span class="chip chip-soft">Soft</span> · 查價待確認</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Alternative（更簡單物流）：</strong> 3 晚全住 Naka → 會面用 Grab 出入 Kamala（約 8–15 min）。<br>
+  <strong>Alternative（只 1 晚 Naka）：</strong> Night1 Naka ＋ Night2–3 Kamala mid。</p>
+
+  <h3>查價／訂房（唔發明價）</h3>
+  <ul class="compact">
+    <li>Official：<a href="https://www.thenakaphuket.com/" target="_blank" rel="noopener">thenakaphuket.com</a> · Tel <strong>+66 76 337 999</strong> · info@thenakaphuket.com</li>
+    <li>亦可問 <strong>Ann</strong>（已有 wedding 聯絡）可否 quote Nov 19–21 mid-tier room（Napa Suite / Partial Seaview）</li>
+    <li><strong>禁止訂：</strong> Beachfront Pool Villa、High Bay Signature、2–4 bedroom（超目的／最貴檔）</li>
+  </ul>
+  <p class="note">Nearby mid options（Night 3 候選，名作搜索用，價未查）：Kamala Beach 一帶 4★；或 Surin／soft north Patong（車程短）。訂前再短list。</p>
+</section>
+
+<!-- 3. Flights -->
+<section class="card" id="flights">
+  <h2>3. Flights &amp; transport</h2>
+  <p class="note"><strong>Live outbound read：</strong> Google Flights 2026-10-20（2 adults RT total HKD，稅費計）。
+  <a href="https://www.google.com/travel/flights/search?tfs=EAAaHhIKMjAyNi0xMS0xOWoHCAESA0hLR3IHCAESA0hLVBoeEgoyMDI2LTExLTIyagcIARIDSEtUcgcIARIDSEtHQAJIAZgBAQ&amp;curr=HKD&amp;hl=en" target="_blank" rel="noopener">Results URL</a>.
+  Return legs 已入下表（live 2026-10-20）。</p>
+
+  <h3>Outbound · Thu 19 Nov · HKG → HKT（建議朝機）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Hyp.</th><th>Airline</th><th>Dep HKG</th><th>Arr HKT</th><th>Duration</th><th>Stops</th><th>RT total (2 pax)</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>A（首選）</strong></td>
+          <td><strong>Hong Kong Express</strong></td>
+          <td><strong>07:25</strong></td>
+          <td><strong>10:15</strong></td>
+          <td>3h50</td>
+          <td>Nonstop</td>
+          <td class="price">HK$4,280</td>
+          <td><span class="chip chip-soft">Soft</span> · live</td>
+        </tr>
+        <tr>
+          <td><strong>B</strong></td>
+          <td><strong>Cathay Pacific</strong></td>
+          <td><strong>08:25</strong></td>
+          <td><strong>11:20</strong></td>
+          <td>3h55</td>
+          <td>Nonstop</td>
+          <td class="price">HK$6,344</td>
+          <td><span class="chip chip-soft">Soft</span> · live</td>
+        </tr>
+        <tr>
+          <td>—</td>
+          <td>THAI</td>
+          <td>15:30</td>
+          <td>20:00</td>
+          <td>5h30</td>
+          <td>1 stop BKK</td>
+          <td>HK$6,342</td>
+          <td><span class="chip chip-soft">Soft</span> · 太晚到</td>
+        </tr>
+        <tr>
+          <td>—</td>
+          <td>Other 1-stop CX/TG</td>
+          <td>afternoon</td>
+          <td>—</td>
+          <td>6h+</td>
+          <td>1 stop</td>
+          <td>HK$8k–11k</td>
+          <td><span class="chip chip-skip">Skip</span> for vibe day</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Arrive buffer：</strong> immigration＋行李 ≈ 45–75 min → 離開機場約 <strong>11:30–12:30 ICT</strong>（選 A）或 <strong>12:30–13:15</strong>（選 B）。</p>
+
+  <h3>Return · Sun 22 Nov · HKT → HKG（live 2026-10-20）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Pair</th><th>Outbound</th><th>Return HKT→HKG</th><th>Airline</th><th>Stops</th><th>RT 2 pax</th><th>Kamala leave</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="star">★ 推薦</span></td>
+          <td>CX 08:25→11:20</td>
+          <td><strong>18:50→23:25</strong></td>
+          <td>Cathay</td>
+          <td>Nonstop</td>
+          <td class="price">HK$6,344</td>
+          <td>~15:30–16:30</td>
+          <td><span class="chip chip-soft">Soft</span> · live</td>
+        </tr>
+        <tr>
+          <td>折衷</td>
+          <td>CX 08:25→11:20</td>
+          <td><strong>12:20→17:05</strong></td>
+          <td>Cathay</td>
+          <td>Nonstop</td>
+          <td class="price">HK$6,344</td>
+          <td>~09:30–10:30</td>
+          <td><span class="chip chip-soft">Soft</span> · live</td>
+        </tr>
+        <tr>
+          <td>最平</td>
+          <td>HKE 07:25→10:15</td>
+          <td><strong>11:00→15:30</strong></td>
+          <td>HK Express</td>
+          <td>Nonstop</td>
+          <td class="price">HK$4,480</td>
+          <td>~08:00–08:30</td>
+          <td><span class="chip chip-soft">Soft</span> · live · 犧牲周日上午</td>
+        </tr>
+        <tr>
+          <td><span class="chip chip-skip">Skip</span></td>
+          <td>CX 08:25</td>
+          <td>07:45／09:45 經停</td>
+          <td>mixed</td>
+          <td>1 stop</td>
+          <td>HK$8.4k–11.2k</td>
+          <td>太早</td>
+          <td><span class="chip chip-skip">Skip</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>建議配對：</strong> 要鬆嘅周日 → <strong>國泰去＋國泰 18:50 回（HK$6,344）</strong>；要慳 → <strong>HK Express 去＋11:00 回（HK$4,480）</strong>。</p>
+
+  <h3>HKT ↔ Kamala／Naka</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Mode</th><th>Drive time</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Grab／Bolt</strong></td><td>~40–50 min（~27 km）</td><td>App；繁忙可加時；2 人＋行李 OK</td></tr>
+        <tr><td><strong>Private van／sedan</strong>（pre-book）</td><td>~40–50 min</td><td>Meet &amp; greet、flight tracking；固定價較穩（公開報價區間常見 ~900–1,200 THB／車，<strong>訂時再確認</strong>）</td></tr>
+        <tr><td>Shared shuttle／Smart Bus</td><td>更長</td><td>行李多唔建議</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Naka ↔ Kamala village：</strong> Grab <strong>~8–15 min</strong>（headland；唔可行走去村）。<br>
+  <strong>Hotel buggy：</strong> Naka 內部 villas↔lobby／beach／lawn 用酒店交通。</p>
+</section>
+
+<!-- 4. Day-by-day -->
+<section class="card" id="days">
+  <h2>4. Day-by-day timeline（local Phuket time = ICT，UTC+7）</h2>
+
+  <h3>Day 0 prep（HK）</h3>
+  <ul class="compact">
+    <li><span class="chip chip-soft">Soft</span>：訂機票、訂 Naka 2 晚＋Night3、WhatsApp／email 發「Nov scouting meet」邀請（見 Meet dashboard）</li>
+  </ul>
+
+  <h3>Thu 19 Nov — Arrive + Naka vibe</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Block</th><th>Time (ICT)</th><th>Plan</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Morning</strong></td><td>~07:25–10:30</td><td>Fly HKG→HKT（Hyp UO／CX）</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>~11:30–12:45</td><td>Private／Grab → <strong>The Naka</strong>；check-in</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td><strong>Afternoon</strong></td><td>~13:00–15:00</td><td>Late lunch <strong>Wiwa</strong>（on-site）或 in-villa；settle</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>~15:00–17:30</td><td><strong>Venue walk：</strong> Green Lawn（ceremony／dinner site）、beach／NANA bar、main pool；拍照筆記 vibe</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td><strong>Evening</strong></td><td>~18:00–19:00</td><td>Cocktail <strong>Meka</strong> sky lounge（sunset）</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>~19:30–21:30</td><td>Dinner on-site <strong>or</strong> short Grab → Kamala（Fino／Pinto）</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>—</td><td><strong>Meet：</strong> 首日不塞會；可 soft coffee with <strong>Dream Weddings</strong>（Kamala 本地，若對方有空）</td><td><span class="chip chip-tbd">TBD meet</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Fri 20 Nov — Meets + spa（核心日）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Block</th><th>Time (ICT)</th><th>Plan</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Morning</strong></td><td>~08:00–09:30</td><td>Breakfast Naka；optional lawn／beach light walk</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>~10:00–11:30</td><td><strong>Meet slot A：</strong> Florist — <strong>Phuket Dream Weddings</strong>（Kamala，近）<strong>或</strong> Peony／WFP</td><td><span class="chip chip-tbd">TBD meet</span></td></tr>
+        <tr><td><strong>Afternoon</strong></td><td>~12:00–13:30</td><td>Lunch Kamala（Green Leaf／Marush／Baanrai）</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>~14:00–15:30</td><td><strong>Meet slot B：</strong> Photo — <strong>Wasan</strong> <strong>或</strong> CADO／KORO（視邊個喺島）</td><td><span class="chip chip-tbd">TBD meet</span></td></tr>
+        <tr><td></td><td>~16:00–18:00</td><td><strong>Spa：</strong> Napa Spa（on-site）<strong>或</strong> Siladon／Blue Cloud（Kamala，Grab）</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td><strong>Evening</strong></td><td>~19:00–21:00</td><td>Dinner Kamala seafood／Thai</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>~21:00+</td><td>Back Naka；整理 vendor notes</td><td><span class="chip chip-soft">Soft</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Sat 21 Nov — Trial makeup + planner + food</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Block</th><th>Time (ICT)</th><th>Plan</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Morning</strong></td><td>~09:30–12:00</td><td><strong>Trial HMU</strong>（酒店房／spa room）— Yaya／Kamix／Palmy 擇一</td><td><span class="chip chip-tbd">TBD meet</span></td></tr>
+        <tr><td><strong>Afternoon</strong></td><td>~12:30–14:00</td><td>Brunch／lunch</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>~14:30–16:00</td><td><strong>Meet slot C：</strong> Planner — <strong>Natasha (L'Amour)</strong> <strong>或</strong> <strong>Duke</strong> <strong>或</strong> Phuket Wedding Co（邊個喺 Phuket）</td><td><span class="chip chip-tbd">TBD meet</span></td></tr>
+        <tr><td></td><td>~16:30–18:00</td><td><strong>Optional water</strong> half-day 尾段（kayak／SUP at Naka beach）<strong>或</strong> 第二 spa／Kamala café</td><td><span class="chip chip-optional">Optional</span></td></tr>
+        <tr><td><strong>Evening</strong></td><td>—</td><td>Check-in Night3（若轉 Kamala mid）or stay Naka</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>~19:00–21:30</td><td>輕鬆晚餐＋按摩（Chang／Ratana）</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>若時間允</td><td><strong>Meet soft：</strong> Jazz／Fairy 電話／短 coffee（Plajazz 多數曼谷 — 未必面會；Tropica 本地可考慮）</td><td><span class="chip chip-tbd">TBD meet</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Sun 22 Nov — Soft morning + depart</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Block</th><th>Time (ICT)</th><th>Plan</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Morning</strong></td><td>~08:00–11:00</td><td>Slow breakfast；optional beach／最後 Naka 氛圍（若仍住／回訪）</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td></td><td>—</td><td><strong>Buffer meet：</strong> 只保留 1 個未約成嘅 vendor（唔好塞）</td><td><span class="chip chip-tbd">TBD meet</span></td></tr>
+        <tr><td><strong>Afternoon</strong></td><td>視回程機</td><td>Grab／private → HKT；<strong>晚機</strong>則 ~15:00 出發</td><td><span class="chip chip-soft">Soft</span></td></tr>
+        <tr><td><strong>Evening</strong></td><td>—</td><td>Fly HKT→HKG</td><td><span class="chip chip-soft">Soft</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 5. Meets -->
+<section class="card" id="meets">
+  <h2>5. Meet dashboard（預留空位 — 全部 Status = TBD to invite）</h2>
+  <p>Meetings <strong>NOT booked</strong>. Contacts from market scan／公開頁。建議每日最多 <strong>2 面會</strong>，其餘 WhatsApp／Zoom。</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Who</th><th>Role</th><th>Why meet</th><th>Suggested slot</th><th>Contact</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Phuket Dream Weddings</strong></td>
+          <td>Florist／décor（Kamala）</td>
+          <td>近 Naka；reception décor＋fairy add-on；本地易約</td>
+          <td><strong>Fri 20 AM</strong> @ Kamala café／佢哋 studio</td>
+          <td>wedding@thavorngroup.com · +66 98 669 5122 · 6/2 Moo 6 Kamala</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>The Peony Creations</strong></td>
+          <td>Florist＋fairy lights</td>
+          <td>≤60 decor package 錨點；花＋燈一站</td>
+          <td><strong>Fri 20 AM</strong>（若 Dream 唔得則此）或 Sat soft</td>
+          <td>event@thepeonycreations.com · WA +66 88 879 2551</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>Wedding Flowers Phuket (WFP)</strong></td>
+          <td>Florist</td>
+          <td>價目最透明；long-table／relocate 經驗</td>
+          <td>Fri／Sat soft coffee 或 video</td>
+          <td>admin@weddingflowersphuket.com · +66 855 653 944</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Phuket Photography (Wasan)</strong></td>
+          <td>Photo＋video</td>
+          <td>Documentary；Phuket-based；8h combo 對齊 brief</td>
+          <td><strong>Fri 20 PM</strong></td>
+          <td>info@phuketphotography.com · +66 95 461 2959</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>CADO07</strong></td>
+          <td>Photo＋video</td>
+          <td>Cinematic＋candid；要確認 bilingual／加鐘</td>
+          <td>Fri／Sat soft</td>
+          <td>cado07.com enquiry</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>KORO Films</strong></td>
+          <td>Photo＋video</td>
+          <td>Documentary 強；可能 Bangkok — 確認 Nov 是否在 Phuket</td>
+          <td>Soft／video call if not on island</td>
+          <td>korofilms@gmail.com · WA Mimp +66 92 192 4566 · LINE @korofilms</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>Plajazz／iHearBand</strong></td>
+          <td>Jazz trio</td>
+          <td>Richard jazz fit；<strong>多數 Bangkok</strong> — Nov 面會機會低</td>
+          <td>Phone／LINE；Tropica 作本地備選</td>
+          <td>Tel <strong>086-896-5900</strong> · plajazz.com／ihearband.com</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><strong>Tropica Wedding</strong>（music 備選）</td>
+          <td>Live music／PA</td>
+          <td>Phuket 本地 trio＋PA</td>
+          <td>Sat soft if Plajazz remote</td>
+          <td>support@tropicawedding.com</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><strong>DDY Events</strong></td>
+          <td>Fairy canopy</td>
+          <td>Structure canopy 50–60；或併 Peony／Dream 燈</td>
+          <td>Bundle with florist meet</td>
+          <td>ddyeventwedding.com/contacts</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><strong>Natasha · L'Amour Phuket</strong></td>
+          <td>Planner</td>
+          <td>已有 draft proposal；venue rental／package 兩邊都接</td>
+          <td><strong>Sat 21 PM</strong>（若佢喺島）</td>
+          <td>既有電郵／bonjour cc</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><strong>Duke · Intimate Wedding Experience</strong></td>
+          <td>Planner</td>
+          <td>已有 Intimate 方案；DIY 對照用</td>
+          <td>Sat soft／coffee</td>
+          <td>既有電郵</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><strong>Phuket Wedding Co</strong></td>
+          <td>Planner</td>
+          <td>香港人；似只做連 package — 澄清</td>
+          <td>Soft call／meet</td>
+          <td>phuketweddingco@gmail.com</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td><strong>Wedding Boutique David／Ilaire</strong></td>
+          <td>Planner</td>
+          <td><strong>已約 2026-10-23 call</strong> — <strong>唔放呢次 Nov trip</strong></td>
+          <td>—</td>
+          <td>Zoom／WA +66 621413979</td>
+          <td><span class="chip chip-skip">Skip Nov</span>（已另約）</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td><strong>Yaya Phuket Makeup</strong></td>
+          <td>HMU trial</td>
+          <td>Bridal＋trial；可到酒店</td>
+          <td><strong>Sat 21 AM</strong> @ Naka／Kamala hotel</td>
+          <td>+66 95 096 8625 · yaya.pkmakeupartist@gmail.com</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td><strong>Kamix Artist Phuket</strong></td>
+          <td>HMU trial</td>
+          <td>On-location；humidity-focused bridal</td>
+          <td>Sat AM 備選</td>
+          <td>itmekamix@gmail.com</td>
+          <td><span class="chip chip-tbd">TBD meet</span></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td><strong>Palmy</strong>（via Phuket Romance）／<strong>Tropica HMU</strong></td>
+          <td>HMU trial</td>
+          <td>Trial from ~8k THB（Palmy 公開起）；Tropica 有 Kamala travel fee 公開</td>
+          <td>Sat AM 備選</td>
+          <td>Phuket Romance listing；Tropica support@tropicawedding.com</td>
+          <td><span class="chip chip-tbd">TBD meet</span> · estimate only</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Meet slot count（pre-placed rows）：</strong> <strong>16</strong>（其中 #13 Skip Nov；有效可邀請 ≈ <strong>15</strong>；行程硬預留面會格 ≈ <strong>4–5</strong>/trip：Florist×1、Photo×1、Planner×1、HMU×1、＋1 flex）</p>
+
+  <h3>Invite template（短）</h3>
+  <div class="invite">Hi — Kam &amp; Stephanie. We’re in Kamala <strong>19–22 Nov 2026</strong> scouting The Naka for a Dec 2027 Western wedding (~50–60). Could we do a <strong>30–45 min coffee／site chat</strong> on [Fri 20 / Sat 21]? No commitment — just meet &amp; vibe check. Thanks!</div>
+</section>
+
+<!-- 6. Food & spa -->
+<section class="card" id="food">
+  <h2>6. Food &amp; spa shortlist（Kamala／Naka）</h2>
+
+  <h3>Dining（3–5）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Place</th><th>Area</th><th>Why</th><th>Access</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Wiwa</strong>（The Naka）</td><td>On-site beach level</td><td>Thai／intl；抵步／懶出門</td><td>Walk</td></tr>
+        <tr><td><strong>Meka</strong> sky lounge</td><td>On-site hill</td><td>Sunset drinks／輕食；氛圍</td><td>Hotel transport</td></tr>
+        <tr><td><strong>Fino Restaurant Kamala</strong></td><td>Kamala</td><td>評價穩；brunch／dinner</td><td>Grab ~10–15 min</td></tr>
+        <tr><td><strong>Pinto</strong>／<strong>Green Leaf</strong></td><td>Kamala</td><td>高分本地／casual</td><td>Grab</td></tr>
+        <tr><td><strong>Kamala Seafood</strong>／<strong>Baanrai I Talay</strong></td><td>Kamala beach／café</td><td>海鮮／輕食</td><td>Grab</td></tr>
+        <tr><td><strong>Marush Kamala</strong></td><td>Kamala</td><td>Middle Eastern；人氣高</td><td>Grab</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Spa／massage（2–3＋on-site）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Place</th><th>Area</th><th>Why</th><th>Access</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Napa Spa</strong>（The Naka）</td><td>On-site Spa Tower</td><td>與 Napa Suite 同塔；最少交通</td><td>Walk／lift</td></tr>
+        <tr><td><strong>Siladon Spa Kamala</strong></td><td>128 Kamala</td><td>高分；10:00–22:00</td><td>Grab · +66 84 324 5386</td></tr>
+        <tr><td><strong>Blue Cloud Spa</strong>／<strong>Chang Massage</strong></td><td>Kamala</td><td>評價好；晚間可約</td><td>Grab</td></tr>
+        <tr><td><strong>Ratana Spa</strong>（Ayaara Kamala）</td><td>Kamala</td><td>高分 spa</td><td>Grab · +66 76 310 777</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 7. Water -->
+<section class="card" id="water">
+  <h2>7. Optional water（半日格）</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Option</th><th>When</th><th>Notes</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>SUP／kayak at <strong>Naka private beach</strong></td>
+          <td>Sat 16:30–18:00 <strong>or</strong> Fri 晨</td>
+          <td>酒店可安排；最低物流</td>
+          <td><span class="chip chip-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Calm swim Kamala／Nakalay</td>
+          <td>Any soft afternoon</td>
+          <td>非必須</td>
+          <td><span class="chip chip-optional">Optional</span></td>
+        </tr>
+        <tr>
+          <td>Island day trip（Phi Phi 等）</td>
+          <td>—</td>
+          <td><strong>唔建議</strong>呢 4 日塞入 — 同 meet／relax 撞</td>
+          <td><span class="chip chip-skip">Skip</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 8. Actions -->
+<section class="card" id="actions">
+  <h2>8. Open actions（Kam）</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Action</th><th>Owner</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Book flights</strong> HKG↔HKT（Thu 19 morning in／Sun 22 evening out 建議）</td><td>Kam</td><td>P0</td></tr>
+        <tr><td>2</td><td><strong>Book The Naka</strong> 2 nights（19＋20）：Napa Suite <strong>or</strong> Pool Villa Partial Seaview — 問 Ann／官網；<strong>查價待確認</strong></td><td>Kam</td><td>P0</td></tr>
+        <tr><td>3</td><td><strong>Book Night 3</strong> Kamala mid（21）或決定 3 晚 Naka</td><td>Kam</td><td>P0</td></tr>
+        <tr><td>4</td><td><strong>Approve vendor invite list</strong>（建議先約：Dream、Wasan、Natasha 或 Duke、Yaya／Kamix trial）</td><td>Kam</td><td>P0</td></tr>
+        <tr><td>5</td><td>批准後由婚禮 bot／Dickyson <strong>發 TBD invite</strong>（未授權唔寄）</td><td>Bot after yes</td><td>P1</td></tr>
+        <tr><td>6</td><td>Pre-book <strong>airport private transfer</strong> ×2（到＋走）</td><td>Kam</td><td>P1</td></tr>
+        <tr><td>7</td><td>對照 10/23 David call 結果，決定 Nov 要唔要再見其他 planner</td><td>Kam</td><td>P1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 9. Gaps -->
+<section class="card" id="gaps">
+  <h2>9. Data gaps / caveats</h2>
+  <ul class="compact">
+    <li><strong>Flights：</strong> Google Flights 2026-10-20 去＋回已入 §3；<strong>room</strong> 價仍查價待確認.</li>
+    <li>Nov 19／22 <strong>exact</strong> UO／CX／HX times must be re-checked closer to booking（公開班次會改）.</li>
+    <li>Plajazz／部分 photo team 可能 <strong>唔在 Phuket</strong> 呢幾日 → 改 video call.</li>
+    <li>HMU trial 價：只知公開起價訊號（e.g. Palmy trial from ~8k THB；Tropica bridal packages from ~5.5k＋Kamala travel）；<strong>正式 quote 先算</strong>.</li>
+    <li>Bespoke／ME Events 仍未回 — 未放入 meet 表；有回再 update 本 dashboard.</li>
+    <li>Wedding Boutique：<strong>10/23 call 優先</strong>；本行程不重複約.</li>
+    <li>Dickyson 之後 RFQ 有新 vendor → <strong>update §5 Meet dashboard</strong>.</li>
+  </ul>
+</section>
+
+<footer class="page-foot">
+  Generated 2026-10-20 HKT · Soft plan · not bookings<br>
+  Source: <code>nov2026_scouting_dashboard.md</code>
+  · Related: <code>phuket_vendor_market_scan_2026-10-20.md</code> · <code>duke_intimate_diy_vendors.md</code>
+</footer>
+
+</div>
+</body>
+</html>
