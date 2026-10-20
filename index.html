@@ -25,6 +25,8 @@
     --chip-skip-bg: #f8e8e8;
     --chip-sent: #1f5c6b;
     --chip-sent-bg: #e3f2f5;
+    --chip-quote: #5c3d7a;
+    --chip-quote-bg: #f3eaf8;
     --chip-bounce: #8b3a3a;
     --chip-bounce-bg: #fde8e4;
     --shadow: 0 1px 3px rgba(44,36,28,.06), 0 8px 24px rgba(44,36,28,.04);
@@ -171,6 +173,7 @@
   .chip-optional { background: var(--chip-optional-bg); color: var(--chip-optional); }
   .chip-skip { background: var(--chip-skip-bg); color: var(--chip-skip); }
   .chip-sent { background: var(--chip-sent-bg); color: var(--chip-sent); }
+  .chip-quote { background: var(--chip-quote-bg); color: var(--chip-quote); }
   .chip-bounce { background: var(--chip-bounce-bg); color: var(--chip-bounce); }
   a.chip { text-decoration: none; }
   a.chip:hover { color: inherit; filter: brightness(.97); }
@@ -309,7 +312,7 @@
         <tr><th>Goals（priority）</th><td>① Relax／tourism　② Feel The Naka wedding-venue vibe　③ Meet planners／vendors＋trial makeup nearby</td></tr>
         <tr><th>Water</th><td><span class="chip chip-optional">Optional</span>（非必須）</td></tr>
         <tr><th>Vendor source</th><td><code>phuket_vendor_market_scan_2026-10-20.md</code>；Dickyson DIY 拆解見 <code>duke_intimate_diy_vendors.md</code></td></tr>
-        <tr><th>Vendor RFQ</th><td>電郵最新狀態見 <a href="#rfq">RFQ／Vendor</a>（last updated <strong>2026-10-20 ~20:14 HKT</strong>）· lean 起步價已寄、等回覆；Tropica Wedding 同 One Perfect Day 已轉寄／等回覆；The Naka · Ann：已寄 room block／等 Ann 文件＋deposit 指示。ME Events chase #3（花藝＋day-of）已寄、仍未有 vendor 回覆。IAMFLOWER、Music Emotions、Madiow、Daniel Baci、Phuket Best Photographer：已寄／等回覆。Stephanie 今晚另寄 Art of Flower Phuket／Iris（兩封）同 CK Flora Decor，已寄／等回覆。其餘 Perplexity vendor 仍 <strong>scouted / not contacted</strong></td></tr>
+        <tr><th>Vendor RFQ</th><td>電郵最新狀態見 <a href="#rfq">RFQ／Vendor</a>（last updated <strong>2026-10-20 ~20:16 HKT</strong>）· <strong>已回報價：</strong>Phuket Photography／Wasan（combo 117k，高過 soft ~100k）、Wow Make Up（價目）。其餘 lean 起步價已寄、等回覆；Tropica Wedding 同 One Perfect Day 已轉寄／等回覆；The Naka · Ann：已寄 room block／等 Ann 文件＋deposit 指示。ME Events chase #3（花藝＋day-of）已寄、仍未有 vendor 回覆。IAMFLOWER、Music Emotions、Madiow、Daniel Baci、Phuket Best Photographer：已寄／等回覆。Stephanie 今晚另寄 Art of Flower Phuket／Iris（兩封）同 CK Flora Decor，已寄／等回覆。其餘 Perplexity vendor 仍 <strong>scouted / not contacted</strong>。報價 ≠ 已訂</td></tr>
       </tbody>
     </table>
   </div>
@@ -322,6 +325,7 @@
     <span class="chip chip-optional">Optional</span>
     <span class="chip chip-skip">Skip</span>
     <span class="chip chip-sent">RFQ 已寄</span>
+    <span class="chip chip-quote">收到報價</span>
     <span class="chip chip-bounce">軟退信</span>
   </div>
   <div class="table-wrap">
@@ -334,6 +338,7 @@
         <tr><td><span class="chip chip-optional">Optional</span></td><td>可删可換</td></tr>
         <tr><td><span class="chip chip-skip">Skip</span></td><td>唔跟／唔放呢程</td></tr>
         <tr><td><span class="chip chip-sent">RFQ 已寄／等回</span></td><td>Wedding vendor 電郵已寄，等報價；<strong>唔等於已約 Nov 會面</strong>。軟退後再寄用同一 chip，文案寫 <strong>已轉寄／等回覆</strong></td></tr>
+        <tr><td><span class="chip chip-quote">已回／收到報價</span></td><td>Vendor 已回報價或價目。<strong>唔等於已訂，亦唔等於已約 Nov 會面</strong></td></tr>
         <tr><td><span class="chip chip-bounce">軟退信</span></td><td>寄出失敗／DSN bounce，要跟進地址</td></tr>
         <tr><td><span class="chip chip-tbd">scouted / not contacted</span></td><td>已 scout、未寄 RFQ、未 DM；聯絡方式見該行</td></tr>
       </tbody>
@@ -590,7 +595,7 @@
 <!-- 5. Meets -->
 <section class="card" id="meets">
   <h2>5. Meet dashboard（面會未訂）</h2>
-  <p>Meetings <strong>NOT booked</strong>. 部分 vendor 嘅 wedding <strong>電郵 RFQ 已寄、等回覆</strong>（見 <a href="#rfq">RFQ／Vendor</a>）— chip 只標電郵狀態，<strong>唔代表已約 Nov 會面</strong>。Contacts from market scan／公開頁。名字下面係公開網站／IG（未知就 —）。建議每日最多 <strong>2 面會</strong>，其餘 WhatsApp／Zoom。</p>
+  <p>Meetings <strong>NOT booked</strong>. 部分 vendor 嘅 wedding <strong>電郵 RFQ 已寄、等回覆</strong>；Wasan 今日已回報價（見 <a href="#rfq">RFQ／Vendor</a>）— chip 只標電郵狀態，<strong>唔代表已約 Nov 會面</strong>。Contacts from market scan／公開頁。名字下面係公開網站／IG（未知就 —）。建議每日最多 <strong>2 面會</strong>，其餘 WhatsApp／Zoom。</p>
   <div class="table-wrap">
     <table>
       <thead>
@@ -631,7 +636,7 @@
           <td>Documentary；Phuket-based；8h combo 對齊 brief</td>
           <td><strong>Fri 20 PM</strong></td>
           <td>info@phuketphotography.com · +66 95 461 2959</td>
-          <td><span class="chip chip-sent">RFQ 已寄／等回</span></td>
+          <td><span class="chip chip-quote">已回／收到報價</span></td>
         </tr>
         <tr>
           <td>5</td>
@@ -746,7 +751,7 @@
   </div>
 
   <p><strong>Meet slot count（pre-placed rows）：</strong> <strong>16</strong>（其中 #13 Skip Nov；有效可邀請 ≈ <strong>15</strong>；行程硬預留面會格 ≈ <strong>4–5</strong>/trip：Florist×1、Photo×1、Planner×1、HMU×1、＋1 flex）</p>
-  <p class="note">Wow Make Up、HairMakeupPhuket（Ang）、JIUMAKEUP 只喺 <a href="#rfq">RFQ 表</a>（電郵／待 DM），<strong>未放入 Nov 面會格</strong>，避免當成已約。</p>
+  <p class="note">HairMakeupPhuket（Ang）、JIUMAKEUP 只喺 <a href="#rfq">RFQ 表</a>（電郵／待 DM）。Wow Make Up 已有價目（見 RFQ），仍<strong>未放入 Nov 面會格</strong>，避免當成已約。</p>
 
   <h3>Invite template（短）</h3>
   <div class="invite">Hi — Kam &amp; Stephanie. We’re in Kamala <strong>19–22 Nov 2026</strong> scouting The Naka for a Dec 2027 Western wedding (~50–60). Could we do a <strong>30–45 min coffee／site chat</strong> on [Fri 20 / Sat 21]? No commitment — just meet &amp; vibe check. Thanks!</div>
@@ -755,8 +760,8 @@
 <!-- RFQ / vendor email status -->
 <section class="card" id="rfq">
   <h2>Wedding vendor RFQ（Dec 2027 @ Naka）</h2>
-  <p class="note"><strong>Last updated：</strong> 2026-10-20 ~20:14 HKT。呢張表係 Stephanie 睇嘅 vendor 電郵狀態；每次寄出或收到回覆，改呢度。名字下面係公開網站／IG，未知就 —。2026-10-20 尾加 Perplexity 新 vendor。其中 ME Events（chase #3，仍未有 vendor 回覆）、IAMFLOWER、Music Emotions、Madiow、Daniel Baci、Phuket Best Photographer 已寄／等回覆。Stephanie（stephanielauyy@gmail.com，cc Kam）今晚另寄 Art of Flower Phuket／Iris（兩封）同 CK Flora Decor，已寄／等回覆。其餘仍 <strong>scouted / not contacted</strong>（未寄、未 DM）。有電郵就寫電郵，否則 IG DM／site form。<br>
-  <strong>RFQ 寫法：</strong> 一個 lean 起步價（單一數字），歡迎對方建議或 video call；DIY unbundled — 花、燈、攝影、音樂、妝髮分開問，唔綁 planner package。下面金額只係問價起點，<strong>唔係報價、亦未訂</strong>。</p>
+  <p class="note"><strong>Last updated：</strong> 2026-10-20 ~20:16 HKT。呢張表係 Stephanie 睇嘅 vendor 電郵狀態；每次寄出或收到回覆，改呢度。名字下面係公開網站／IG，未知就 —。今日已回報價：Phuket Photography／Wasan（~19:29）、Wow Make Up（~15:53）。2026-10-20 尾加 Perplexity 新 vendor。其中 ME Events（chase #3，仍未有 vendor 回覆）、IAMFLOWER、Music Emotions、Madiow、Daniel Baci、Phuket Best Photographer 已寄／等回覆。Stephanie（stephanielauyy@gmail.com，cc Kam）今晚另寄 Art of Flower Phuket／Iris（兩封）同 CK Flora Decor，已寄／等回覆。其餘仍 <strong>scouted / not contacted</strong>（未寄、未 DM）。有電郵就寫電郵，否則 IG DM／site form。<br>
+  <strong>RFQ 寫法：</strong> 一個 lean 起步價（單一數字），歡迎對方建議或 video call；DIY unbundled — 花、燈、攝影、音樂、妝髮分開問，唔綁 planner package。未回覆嗰幾行嘅金額只係問價起點。<strong>已回／收到報價先算對方數字，亦未訂</strong>。</p>
 
   <div class="table-wrap">
     <table class="rfq-table">
@@ -839,9 +844,9 @@
           <td class="cat" rowspan="6">攝影＋影片<span class="cat-sub">Photo + video</span></td>
           <td><strong>Phuket Photography</strong><span class="cat-sub">Wasan</span><span class="vlinks"><a href="https://phuketphotography.com/" target="_blank" rel="noopener">網站</a> · <a href="https://www.instagram.com/phuketphotography/" target="_blank" rel="noopener">IG</a></span></td>
           <td class="contact"><a href="mailto:info@phuketphotography.com">info@phuketphotography.com</a></td>
-          <td class="price">~100k</td>
-          <td class="status"><span class="chip chip-sent">已寄／等回覆</span><br>2026-10-20</td>
-          <td>8h → 22:00</td>
+          <td class="price">lean ~100k<span class="cat-sub">combo quote 117k</span></td>
+          <td class="status"><span class="chip chip-quote">已回／收到報價</span><br>2026-10-20 ~19:29</td>
+          <td>已回 ~19:29。Photo 8h THB 75k；video 8h THB 55k；combo special THB 117k（2 photog＋2 video）。包括 highlight 4–6min、drone（若場地允許）、Naka travel free。Soft ask ~100k；combo 高過起步價。未訂、會面未約</td>
         </tr>
         <tr>
           <td><strong>KORO Films</strong><span class="vlinks"><a href="https://korofilms.com/" target="_blank" rel="noopener">網站</a> · <a href="https://www.instagram.com/koro_films/" target="_blank" rel="noopener">IG</a></span></td>
@@ -918,9 +923,9 @@
         <tr>
           <td><strong>Wow Make Up</strong><span class="vlinks"><a href="https://weddingmakeupinphuket.com/" target="_blank" rel="noopener">網站</a> · IG —</span></td>
           <td class="contact"><a href="mailto:weddingmakeupinphuket@gmail.com">weddingmakeupinphuket@gmail.com</a></td>
-          <td class="price">~25k</td>
-          <td class="status"><span class="chip chip-sent">已寄／等回覆</span><br>2026-10-20</td>
-          <td>—</td>
+          <td class="price">lean ~25k<span class="cat-sub">價目已回</span></td>
+          <td class="status"><span class="chip chip-quote">已回／收到報價</span><br>2026-10-20 ~15:53</td>
+          <td>已回 ~15:53 價目：新娘 HMU 10k；新娘 all-day ~12h 25k；新郎 3k；媽媽 5k／位；trial 8k／2h；travel 1k／日。新娘＋新郎＋兩位媽媽＋trial＋travel ≈ 10+3+10+8+1 = 32k（唔用 all-day）。改用 all-day 會更高。未訂、未放入 Nov 面會格</td>
         </tr>
         <tr>
           <td><strong>HairMakeupPhuket</strong><span class="cat-sub">Ang</span><span class="vlinks"><a href="https://www.hairmakeupphuket.com/" target="_blank" rel="noopener">網站</a> · <a href="https://www.instagram.com/angielurfmakeup/" target="_blank" rel="noopener">IG</a></span></td>
@@ -1105,7 +1110,7 @@
         <tr><td>5</td><td>批准後由婚禮 bot／Dickyson <strong>發 Nov 會面 TBD invite</strong>（未授權唔寄）。Wedding 電郵 RFQ 係另一條線，狀態見 <a href="#rfq">RFQ／Vendor</a></td><td>Bot after yes</td><td>P1</td></tr>
         <tr><td>6</td><td>Pre-book <strong>airport private transfer</strong> ×2（到＋走）</td><td>Kam</td><td>P1</td></tr>
         <tr><td>7</td><td>對照 10/23 David call 結果，決定 Nov 要唔要再見其他 planner</td><td>Kam</td><td>P1</td></tr>
-        <tr><td>8</td><td><strong>睇 <a href="#rfq">RFQ／Vendor</a></strong>：wedding vendor 電郵最新狀態（已寄／等回覆、已轉寄／等回覆、待 DM）</td><td>Stephanie</td><td>P0</td></tr>
+        <tr><td>8</td><td><strong>睇 <a href="#rfq">RFQ／Vendor</a></strong>：wedding vendor 電郵最新狀態（已回／收到報價、已寄／等回覆、已轉寄／等回覆、待 DM）</td><td>Stephanie</td><td>P0</td></tr>
       </tbody>
     </table>
   </div>
@@ -1118,7 +1123,7 @@
     <li><strong>Flights：</strong> Google Flights 2026-10-20 去＋回已入 §3；<strong>room</strong> 價仍查價待確認.</li>
     <li>Nov 19／22 <strong>exact</strong> UO／CX／HX times must be re-checked closer to booking（公開班次會改）.</li>
     <li>Plajazz／部分 photo team 可能 <strong>唔在 Phuket</strong> 呢幾日 → 改 video call.</li>
-    <li>HMU trial 價：只知公開起價訊號（e.g. Palmy trial from ~8k THB；Tropica bridal packages from ~5.5k＋Kamala travel）；<strong>正式 quote 先算</strong>.</li>
+    <li>HMU trial 價：Wow Make Up 今日已回價目（見 <a href="#rfq">RFQ</a>）。其餘仍只知公開起價訊號（e.g. Palmy trial from ~8k THB；Tropica bridal packages from ~5.5k＋Kamala travel）；<strong>正式 quote 先算</strong>.</li>
     <li>Bespoke 已有聯絡、等回（見 <a href="#rfq">RFQ 統籌</a>）。ME Events：2026-10-20 ~20:09 HKT chase #3 已寄（花藝 long-table ~45k，並問 day-of／partial coord only ~25k；cc Stephanie）。仍未有 vendor 回覆。未放入 meet 表；有回再 update。</li>
     <li>Wedding Boutique：<strong>10/23 call 優先</strong>；本行程不重複約.</li>
     <li>每次 wedding vendor 寄出或回覆 → 先改 <a href="#rfq">RFQ／Vendor</a>（老婆睇嘅狀態頁），再同步 §5 有關 chip。唔好把「電郵已寄」寫成「會面已約」。</li>
@@ -1126,7 +1131,7 @@
 </section>
 
 <footer class="page-foot">
-  Last updated 2026-10-20 ~20:14 HKT · Vendor RFQ 狀態＋scouted rows · Soft plan · not bookings<br>
+  Last updated 2026-10-20 ~20:16 HKT · Vendor RFQ 狀態＋收到報價 · Soft plan · not bookings<br>
   Source: <code>nov2026_scouting_dashboard.md</code>
   · Related: <code>phuket_vendor_market_scan_2026-10-20.md</code> · <code>duke_intimate_diy_vendors.md</code>
 </footer>
