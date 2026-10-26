@@ -629,6 +629,7 @@
     <div class="tally-actions">
       <button type="button" id="print-btn">Print / Save as PDF</button>
       <button type="button" id="reset">Reset open fields</button>
+      <button type="button" id="reset-keep" hidden>Keep what I typed</button>
     </div>
   </div>
 
@@ -991,7 +992,6 @@
   var ledgerRemain = document.getElementById("ledger-remain");
   var ledgerEnv = document.getElementById("ledger-env");
   var resetBtn = document.getElementById("reset");
-  var resetTimer = null;
 
   function digitsOnly(text) {
     return String(text || "").replace(/[^\d]/g, "");
@@ -1132,12 +1132,19 @@
     return found;
   }
 
-  function clearOpen() {
-    amountInputs.forEach(function (input) { input.value = ""; });
-    vendorInputs.forEach(function (input) { input.value = ""; });
+  var resetKeep = document.getElementById("reset-keep");
+
+  function disarmReset() {
     resetBtn.dataset.armed = "";
     resetBtn.textContent = "Reset open fields";
     resetBtn.setAttribute("aria-pressed", "false");
+    resetKeep.hidden = true;
+  }
+
+  function clearOpen() {
+    amountInputs.forEach(function (input) { input.value = ""; });
+    vendorInputs.forEach(function (input) { input.value = ""; });
+    disarmReset();
     recalc();
   }
 
@@ -1147,18 +1154,20 @@
       return;
     }
     if (resetBtn.dataset.armed === "1") {
-      window.clearTimeout(resetTimer);
       clearOpen();
       return;
     }
     resetBtn.dataset.armed = "1";
     resetBtn.setAttribute("aria-pressed", "true");
     resetBtn.textContent = "Clear vendor names and amounts?";
-    resetTimer = window.setTimeout(function () {
-      resetBtn.dataset.armed = "";
-      resetBtn.setAttribute("aria-pressed", "false");
-      resetBtn.textContent = "Reset open fields";
-    }, 4000);
+    resetKeep.hidden = false;
+  });
+
+  resetKeep.addEventListener("click", disarmReset);
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && resetBtn.dataset.armed === "1" && lightbox.hidden) {
+      disarmReset();
+    }
   });
 
   document.getElementById("print-btn").addEventListener("click", function () {
