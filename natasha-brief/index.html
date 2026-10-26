@@ -272,6 +272,7 @@
     vertical-align: middle;
   }
   .pill-lock { background: var(--leaf-soft); color: var(--leaf); }
+  .pill-ref { background: #f3ecdf; color: #6d5428; }
   h3 {
     margin: 0;
     font-family: var(--serif);
@@ -437,6 +438,10 @@
     text-transform: uppercase;
     color: var(--leaf);
   }
+  .tag-ref { color: #6d5428; }
+  .why { margin: 8px 0 12px; padding-left: 1.15em; }
+  .why li { margin: 4px 0; }
+  .field-note { color: var(--muted); font-size: 0.8rem; font-weight: 500; }
 
   .page-foot {
     margin-top: 28px;
@@ -543,11 +548,11 @@
   }
 </style>
 </head>
-<body data-target="400000" data-photo="115000" data-hmu="24500">
-<a class="skip" href="#open-lines">Skip to open lines</a>
+<body data-target="400000">
+<a class="skip" href="#preferences">Skip to the lines</a>
 <div class="wrap">
   <p class="back-row"><a class="back" href="../index.html">Scouting notes</a></p>
-  <p class="print-only">Working copy for discussion. Amounts in the open lines are proposals typed into this page. Locked lines are preferences already chosen. This sheet is not a confirmed quote or an invoice. Hotel venue rental and food and beverage are outside the vendor target.</p>
+  <p class="print-only">Working copy for discussion. Names and figures already in the photo and hair boxes are starting references, not a booking. Other amounts are proposals typed into this page. This sheet is not a confirmed quote or an invoice. Hotel venue rental and food and beverage are outside the vendor target.</p>
 
   <header class="masthead">
     <p class="kicker">L’Amour Phuket · working brief for Natasha</p>
@@ -579,17 +584,21 @@
 
   <div class="lede">
     <p>Hello Natasha — thank you for working through this with us.</p>
-    <p>Photo and video with Daniel Baci, and hair and makeup with Suparat Taweekit, are already the couple’s preference. Those two lines are filled in below and stay locked. Florals, lights, music, your coordination, and any extras are open: please propose a vendor and a figure that can meet the mood references.</p>
-    <p>Only those two locked lines have figures. Every other amount is waiting for you. The totals update as you type, and they stay in this browser tab only. Refreshing the page clears what you entered.</p>
+    <p>This is a working sheet of the couple’s preferences and mood references. Please propose vendors and figures that can meet the mood and sit inside THB 400,000 for vendors. Hotel venue rental and food and beverage sit outside that number.</p>
+    <p>Where a name and an amount are already filled in, they are a soft reference, not a decision. If you know a stronger option, put it in. A lower figure that still fits the brief frees room inside the 400,000.</p>
+    <p>The totals update as you type, and they stay in this browser tab only. Refreshing the page brings the starting references back.</p>
   </div>
 
   <nav class="jumps" aria-label="Lines on this brief">
-    <a href="#locked">Locked</a>
+    <a href="#photo">Photo</a>
+    <a href="#hmu">Hair &amp; makeup</a>
     <a href="#ceremony">Ceremony florals</a>
     <a href="#dinner">Dinner florals</a>
     <a href="#lights">Lights</a>
     <a href="#welcome">Welcome sign</a>
     <a href="#music">Music</a>
+    <a href="#ceremony-av">Ceremony sound</a>
+    <a href="#dinner-pa">Dinner PA</a>
     <a href="#planning">Planning</a>
     <a href="#other">Other</a>
     <a href="#ledger">Total</a>
@@ -604,28 +613,28 @@
       </div>
       <div class="stat">
         <span class="k">Spent</span>
-        <strong id="spent">139,500</strong>
-        <span class="status">locked + open lines</span>
+        <strong id="spent">157,200</strong>
+        <span class="status">all lines on this sheet</span>
       </div>
       <div class="stat is-ok" id="remain-card">
         <span class="k">Remaining</span>
-        <strong id="remain">260,500</strong>
+        <strong id="remain">242,800</strong>
         <span class="status" id="remain-note">inside the target</span>
       </div>
-      <div class="stat is-ok" id="env-card">
-        <span class="k">Natasha envelope remaining</span>
-        <strong id="envelope">260,500</strong>
-        <span class="status" id="env-note">of 260,500 still open</span>
+      <div class="stat" id="ref-card">
+        <span class="k">Reference still in play</span>
+        <strong id="reference">157,200</strong>
+        <span class="status" id="ref-note">photo and hair starting figures</span>
       </div>
     </div>
-    <div class="bar" id="bar" role="img" aria-label="Open lines used, none of 260,500 so far">
-      <span id="bar-fill"></span>
+    <div class="bar" id="bar" role="img" aria-label="Spent 157,200 of 400,000">
+      <span id="bar-fill" style="width: 39.3%"></span>
     </div>
   </section>
   <div class="tally-more">
-    <p class="formula" id="formula">139,500 locked + 0 open = 139,500 spent. 260,500 left of 400,000.</p>
+    <p class="formula" id="formula">157,200 spent. 242,800 left of 400,000. 157,200 of that spend is still a starting reference.</p>
     <p class="sr-only" id="live" aria-live="polite" aria-atomic="true"></p>
-    <noscript><p class="band">The running total needs JavaScript. With it off, the locked lines still stand at 115,000 and 24,500 (139,500 together), leaving 260,500 of the 400,000 target.</p></noscript>
+    <noscript><p class="band">The running total needs JavaScript. The photo and hair boxes start at 115,000 and 42,200 (157,200 together), which leaves 242,800 of the 400,000 target until those figures are changed.</p></noscript>
     <div class="tally-actions">
       <button type="button" id="print-btn">Print / Save as PDF</button>
       <button type="button" id="reset">Reset open fields</button>
@@ -633,54 +642,81 @@
     </div>
   </div>
 
-  <h2 id="locked">Locked preferences</h2>
-  <p class="section-intro">These names and amounts are set. They are here so the open lines can be planned against what is already spoken for.</p>
-
-  <article class="line lock">
-    <div class="line-head">
-      <div>
-        <p class="eyebrow"><span class="pill pill-lock">Locked</span></p>
-        <h3>Photo + video</h3>
-        <p class="who">Daniel Baci</p>
-      </div>
-      <p class="amt"><span class="num" id="photo-amt">115,000</span><span class="cur">THB</span></p>
-    </div>
-    <p class="desc"><strong>Never Enough package (retail)</strong> from the public listing: 2 photographers, 10–12 hours, tea ceremony + bridal prep + ceremony + celebrations, 600+ images.</p>
-    <div class="callout">
-      <p><strong>Budget placeholder.</strong> This 115,000 is the public retail price of the Never Enough photo package. It is a stand-in for a full-service photo and video total until a formal combined quote arrives (call pending). A video add-on may change the total.</p>
-      <p>Source: <a class="source-link" href="https://phuketromance.com/vendors/phuket-wedding-photography-daniel-baci-photography/">phuketromance.com — Daniel Baci Photography</a> (Never Enough from 115,000 THB).</p>
-    </div>
-  </article>
-
-  <article class="line lock">
-    <div class="line-head">
-      <div>
-        <p class="eyebrow"><span class="pill pill-lock">Locked</span></p>
-        <h3>Hair &amp; makeup</h3>
-        <p class="who">Suparat Taweekit</p>
-      </div>
-      <p class="amt"><span class="num" id="hmu-amt">24,500</span><span class="cur">THB</span></p>
-    </div>
-    <p class="desc">Makeup + hair at 3,500 THB a person. Bride, two styles (2 × 3,500) + two mothers + two sisters + one older sister = 7 × 3,500.</p>
-    <ul class="split">
-      <li><span>Bride, 2 styles (2 × 3,500)</span><span>7,000</span></li>
-      <li><span>Two mothers (2 × 3,500)</span><span>7,000</span></li>
-      <li><span>Two sisters (2 × 3,500)</span><span>7,000</span></li>
-      <li><span>One older sister (1 × 3,500)</span><span>3,500</span></li>
-      <li><span>7 × 3,500</span><span>24,500</span></li>
-    </ul>
-  </article>
-
-  <p class="band"><strong>Locked subtotal 139,500 THB.</strong> Envelope left for the open lines: <strong>260,500 THB</strong>, toward the 400,000 target.</p>
-
-  <h2 id="open-lines">Open lines</h2>
-  <p class="section-intro">Vendor and amount start empty. Type a name and a figure straight into the boxes on each line. They are ordinary text fields, and the totals above change as you type. You do not need to edit this page’s code. The photos are mood references for the florals, the lights, and the welcome sign: a soft romantic garden in dusty blush, ivory, and eucalyptus.</p>
+  <h2 id="preferences">Working preferences</h2>
+  <p class="section-intro">Open to a better option. The names and figures below are references the couple can live with. Edit either box, or replace them if you know a stronger fit that also frees budget inside the 400,000.</p>
 
   <form id="sheet" autocomplete="off" onsubmit="return false;">
+    <article class="line" id="photo">
+      <div class="line-head">
+        <div>
+          <p class="eyebrow"><span class="pill pill-ref">Reference</span> 1</p>
+          <h3>Photo + video</h3>
+        </div>
+      </div>
+      <p class="desc"><strong>Why this style.</strong> Kam can live with a day that feels like this:</p>
+      <ul class="why">
+        <li>A soft romantic documentary look: emotion and real moments, rather than stiff studio posing.</li>
+        <li>Comfortable across one continuous day — a Chinese tea ceremony and bridal morning, the Western ceremony on the Green Lawn, and the evening celebration.</li>
+        <li>Natural light, warm skin tones, and a refined outdoor aesthetic that matches the dusty blush, ivory, and eucalyptus mood.</li>
+      </ul>
+      <p class="desc">If you know a stronger fit — that style, ease with an East Asian tea ceremony, and the budget — propose the vendor and a lower figure. Bringing this line down unlocks room in the 400,000.</p>
+      <div class="callout">
+        <p><strong>Reference listing, not a booking.</strong> Never Enough package (retail) from the public listing: 2 photographers, 10–12 hours, tea ceremony + bridal prep + ceremony + celebrations, 600+ images. The 115,000 below is that photo package’s public retail price, used as a stand-in for a full-service photo and video total until a formal combined quote arrives (call pending). A video add-on may change the figure. Both the name and the amount can be edited or replaced.</p>
+        <p>Source: <a class="source-link" href="https://phuketromance.com/vendors/phuket-wedding-photography-daniel-baci-photography/">phuketromance.com — Daniel Baci Photography</a> (Never Enough from 115,000 THB).</p>
+      </div>
+      <div class="fields">
+        <label>
+          <span>Vendor</span>
+          <input type="text" name="vendor-photo" autocomplete="off" autocapitalize="words" data-open-vendor="photo" data-default="Daniel Baci" value="Daniel Baci">
+          <small class="field-note">Starting reference. Replace the name if you have a better fit.</small>
+        </label>
+        <label>
+          <span>Amount (THB)</span>
+          <input type="text" inputmode="decimal" name="amount-photo" autocomplete="off" autocorrect="off" spellcheck="false" data-open-amount="photo" data-default="115,000" data-reference="115000" value="115,000" aria-describedby="hint-photo">
+          <small class="hint" id="hint-photo" hidden>Use digits only.</small>
+        </label>
+      </div>
+    </article>
+
+    <article class="line" id="hmu">
+      <div class="line-head">
+        <div>
+          <p class="eyebrow"><span class="pill pill-ref">Reference</span> 2</p>
+          <h3>Hair &amp; makeup</h3>
+        </div>
+      </div>
+      <p class="desc"><strong>The filter is East Asian bridal experience.</strong> The artist needs a strong feel for Hong Kong and Chinese features, and for soft romantic looks that photograph well outdoors. That matters more than keeping the reference name below.</p>
+      <p class="desc">If you know someone who meets that bar and can come in under the reference, propose them. A lower figure here unlocks room in the 400,000.</p>
+      <div class="callout">
+        <p><strong>Reference only, not locked.</strong> Suparat Taweekit at 42,200 is a soft starting figure: 27,000 + 3,500 × 4 + 1,200 × 1.</p>
+      </div>
+      <ul class="split">
+        <li><span>Bridal package</span><span>27,000</span></li>
+        <li><span>Four guests, full makeup + hair (mothers and sisters, 3,500 × 4)</span><span>14,000</span></li>
+        <li><span>One sister, hair styling only (1,200 × 1)</span><span>1,200</span></li>
+        <li><span>27,000 + 3,500 × 4 + 1,200 × 1</span><span>42,200</span></li>
+      </ul>
+      <div class="fields">
+        <label>
+          <span>Vendor</span>
+          <input type="text" name="vendor-hmu" autocomplete="off" autocapitalize="words" data-open-vendor="hmu" data-default="Suparat Taweekit" value="Suparat Taweekit">
+          <small class="field-note">Starting reference. Replace the name if you have a better fit.</small>
+        </label>
+        <label>
+          <span>Amount (THB)</span>
+          <input type="text" inputmode="decimal" name="amount-hmu" autocomplete="off" autocorrect="off" spellcheck="false" data-open-amount="hmu" data-default="42,200" data-reference="42200" value="42,200" aria-describedby="hint-hmu">
+          <small class="hint" id="hint-hmu" hidden>Use digits only.</small>
+        </label>
+      </div>
+    </article>
+
+    <h2 id="open-lines">Lines to propose</h2>
+    <p class="section-intro">These boxes start empty. Type a vendor and a figure straight into them. The totals above change as you type. Florals, lights, and the welcome sign follow the mood references: a soft romantic garden in dusty blush, ivory, and eucalyptus.</p>
+
     <article class="line" id="ceremony">
       <div class="line-head">
         <div>
-          <p class="eyebrow"><span class="pill">Open</span> 1</p>
+          <p class="eyebrow"><span class="pill">Open</span> 3</p>
           <h3>Ceremony florals</h3>
         </div>
       </div>
@@ -715,7 +751,7 @@
     <article class="line" id="dinner">
       <div class="line-head">
         <div>
-          <p class="eyebrow"><span class="pill">Open</span> 2</p>
+          <p class="eyebrow"><span class="pill">Open</span> 4</p>
           <h3>Dinner / long-table florals</h3>
         </div>
       </div>
@@ -750,7 +786,7 @@
     <article class="line" id="lights">
       <div class="line-head">
         <div>
-          <p class="eyebrow"><span class="pill">Open</span> 3</p>
+          <p class="eyebrow"><span class="pill">Open</span> 5</p>
           <h3>Fairy / bistro lights</h3>
         </div>
       </div>
@@ -779,7 +815,7 @@
     <article class="line" id="welcome">
       <div class="line-head">
         <div>
-          <p class="eyebrow"><span class="pill">Open</span> 4</p>
+          <p class="eyebrow"><span class="pill">Open</span> 6</p>
           <h3>Welcome sign / stationery décor</h3>
         </div>
       </div>
@@ -808,11 +844,11 @@
     <article class="line" id="music">
       <div class="line-head">
         <div>
-          <p class="eyebrow"><span class="pill">Open</span> 5</p>
-          <h3>Live music + ceremony/dinner PA</h3>
+          <p class="eyebrow"><span class="pill">Open</span> 7</p>
+          <h3>Live music</h3>
         </div>
       </div>
-      <p class="desc">A jazz trio, or something close to it, playing through about 22:00, with PA for the ceremony and for dinner. Please propose the vendor and the fee.</p>
+      <p class="desc">A jazz trio, or something close to it, playing through about 22:00. Price the musicians here. Ceremony microphones and dinner sound are the next two lines, so this figure can stay with the music.</p>
       <div class="fields">
         <label>
           <span>Vendor</span>
@@ -826,10 +862,52 @@
       </div>
     </article>
 
+    <article class="line" id="ceremony-av">
+      <div class="line-head">
+        <div>
+          <p class="eyebrow"><span class="pill">Open</span> 8</p>
+          <h3>Ceremony sound / mic</h3>
+        </div>
+      </div>
+      <p class="desc">Sound for the ceremony itself: vows, the officiant, and a wireless handheld or lapel as needed. Vendor and amount are empty for you.</p>
+      <div class="fields">
+        <label>
+          <span>Vendor</span>
+          <input type="text" name="vendor-ceremony-av" autocomplete="off" autocapitalize="words" placeholder="Propose a name" data-open-vendor="ceremony-av">
+        </label>
+        <label>
+          <span>Amount (THB)</span>
+          <input type="text" inputmode="decimal" name="amount-ceremony-av" autocomplete="off" autocorrect="off" spellcheck="false" data-open-amount="ceremony-av" aria-describedby="hint-ceremony-av">
+          <small class="hint" id="hint-ceremony-av" hidden>Use digits only.</small>
+        </label>
+      </div>
+    </article>
+
+    <article class="line" id="dinner-pa">
+      <div class="line-head">
+        <div>
+          <p class="eyebrow"><span class="pill">Open</span> 9</p>
+          <h3>Dinner / reception PA</h3>
+        </div>
+      </div>
+      <p class="desc">Sound for the evening: speeches and background through dinner. Vendor and amount are empty for you.</p>
+      <div class="fields">
+        <label>
+          <span>Vendor</span>
+          <input type="text" name="vendor-dinner-pa" autocomplete="off" autocapitalize="words" placeholder="Propose a name" data-open-vendor="dinner-pa">
+        </label>
+        <label>
+          <span>Amount (THB)</span>
+          <input type="text" inputmode="decimal" name="amount-dinner-pa" autocomplete="off" autocorrect="off" spellcheck="false" data-open-amount="dinner-pa" aria-describedby="hint-dinner-pa">
+          <small class="hint" id="hint-dinner-pa" hidden>Use digits only.</small>
+        </label>
+      </div>
+    </article>
+
     <article class="line" id="planning">
       <div class="line-head">
         <div>
-          <p class="eyebrow"><span class="pill">Open</span> 6</p>
+          <p class="eyebrow"><span class="pill">Open</span> 10</p>
           <h3>Planning / day-of coordination</h3>
         </div>
       </div>
@@ -850,7 +928,7 @@
     <article class="line" id="other">
       <div class="line-head">
         <div>
-          <p class="eyebrow"><span class="pill">Open</span> 7</p>
+          <p class="eyebrow"><span class="pill">Open</span> 11</p>
           <h3>Other / contingency</h3>
         </div>
       </div>
@@ -883,14 +961,14 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">Photo + video <span class="tag">Locked</span></th>
-          <td>Daniel Baci</td>
-          <td class="num">115,000</td>
+          <th scope="row">Photo + video <span class="tag tag-ref">Reference</span></th>
+          <td data-ledger-vendor="photo">Daniel Baci</td>
+          <td class="num" data-ledger-amount="photo">115,000</td>
         </tr>
         <tr>
-          <th scope="row">Hair &amp; makeup <span class="tag">Locked</span></th>
-          <td>Suparat Taweekit</td>
-          <td class="num">24,500</td>
+          <th scope="row">Hair &amp; makeup <span class="tag tag-ref">Reference</span></th>
+          <td data-ledger-vendor="hmu">Suparat Taweekit</td>
+          <td class="num" data-ledger-amount="hmu">42,200</td>
         </tr>
         <tr>
           <th scope="row">Ceremony florals</th>
@@ -913,9 +991,19 @@
           <td class="num" data-ledger-amount="welcome">—</td>
         </tr>
         <tr>
-          <th scope="row">Live music + ceremony/dinner PA</th>
+          <th scope="row">Live music</th>
           <td data-ledger-vendor="music">—</td>
           <td class="num" data-ledger-amount="music">—</td>
+        </tr>
+        <tr>
+          <th scope="row">Ceremony sound / mic</th>
+          <td data-ledger-vendor="ceremony-av">—</td>
+          <td class="num" data-ledger-amount="ceremony-av">—</td>
+        </tr>
+        <tr>
+          <th scope="row">Dinner / reception PA</th>
+          <td data-ledger-vendor="dinner-pa">—</td>
+          <td class="num" data-ledger-amount="dinner-pa">—</td>
         </tr>
         <tr>
           <th scope="row">Planning / day-of coordination</th>
@@ -930,12 +1018,8 @@
       </tbody>
       <tfoot>
         <tr>
-          <th scope="row" colspan="2">Open lines</th>
-          <td class="num" id="ledger-open">0</td>
-        </tr>
-        <tr>
           <th scope="row" colspan="2">Spent</th>
-          <td class="num" id="ledger-spent">139,500</td>
+          <td class="num" id="ledger-spent">157,200</td>
         </tr>
         <tr>
           <th scope="row" colspan="2">Target</th>
@@ -943,11 +1027,11 @@
         </tr>
         <tr>
           <th scope="row" colspan="2">Remaining</th>
-          <td class="num" id="ledger-remain">260,500</td>
+          <td class="num" id="ledger-remain">242,800</td>
         </tr>
         <tr>
-          <th scope="row" colspan="2">Natasha envelope remaining <span style="font-weight:500">(of 260,500)</span></th>
-          <td class="num" id="ledger-env">260,500</td>
+          <th scope="row" colspan="2">Reference still in play</th>
+          <td class="num" id="ledger-ref">157,200</td>
         </tr>
       </tfoot>
     </table>
@@ -955,7 +1039,7 @@
 
   <footer class="page-foot">
     <p>Kam (Richard Chan) and Stephanie Lau · Saturday 4 December 2027 · The Naka Phuket, Green Lawn · About 50–65 guests.</p>
-    <p>Prepared for Natasha, L’Amour Phuket. The vendor target is THB 400,000. Hotel venue rental and food and beverage sit outside it. Photo and hair &amp; makeup are locked preferences. The other lines are blank for her proposals. Figures typed here are not saved, and they are not a booking.</p>
+    <p>Prepared for Natasha, L’Amour Phuket. The vendor target is THB 400,000. Hotel venue rental and food and beverage sit outside it. Photo and hair &amp; makeup start as references she can keep or replace. The other lines are blank for her proposals. Figures typed here are not saved, and they are not a booking.</p>
   </footer>
 </div>
 
@@ -966,42 +1050,32 @@
 
 <script>
 (function () {
-  /* Target 400000. Photo 115000 + hair & makeup 24500 = 139500.
-     Envelope for open lines = 260500. Sums use integer satang. */
+  /* Target 400000. Every amount box counts, including the photo and hair
+     starting references. Sums use integer satang. */
   var TARGET = 400000;
-  var PHOTO = 115000;
-  var HMU = 24500;
-  var FIXED = PHOTO + HMU;
-  var ENVELOPE = TARGET - FIXED;
 
   var amountInputs = document.querySelectorAll("[data-open-amount]");
   var vendorInputs = document.querySelectorAll("[data-open-vendor]");
+  var referenceBaseline = 0;
+  amountInputs.forEach(function (input) {
+    var refBaht = Number(input.getAttribute("data-reference"));
+    if (refBaht) referenceBaseline += refBaht * 100;
+  });
   var spentEl = document.getElementById("spent");
   var remainEl = document.getElementById("remain");
   var remainNote = document.getElementById("remain-note");
   var remainCard = document.getElementById("remain-card");
-  var envEl = document.getElementById("envelope");
-  var envNote = document.getElementById("env-note");
-  var envCard = document.getElementById("env-card");
+  var refEl = document.getElementById("reference");
+  var refNote = document.getElementById("ref-note");
+  var refCard = document.getElementById("ref-card");
   var formulaEl = document.getElementById("formula");
   var barFill = document.getElementById("bar-fill");
   var bar = document.getElementById("bar");
   var liveEl = document.getElementById("live");
-  var ledgerOpen = document.getElementById("ledger-open");
   var ledgerSpent = document.getElementById("ledger-spent");
   var ledgerRemain = document.getElementById("ledger-remain");
-  var ledgerEnv = document.getElementById("ledger-env");
+  var ledgerRef = document.getElementById("ledger-ref");
   var resetBtn = document.getElementById("reset");
-
-  function digitsOnly(text) {
-    return String(text || "").replace(/[^\d]/g, "");
-  }
-
-  var photoShown = digitsOnly(document.getElementById("photo-amt").textContent);
-  var hmuShown = digitsOnly(document.getElementById("hmu-amt").textContent);
-  if (photoShown !== String(PHOTO) || hmuShown !== String(HMU) || FIXED !== 139500 || ENVELOPE !== 260500 || TARGET !== 400000) {
-    formulaEl.textContent = "The locked figures on this page do not add up. Expected photo 115,000 + hair and makeup 24,500 = 139,500, leaving 260,500 of 400,000.";
-  }
 
   function formatSatang(satang) {
     var neg = satang < 0;
@@ -1050,12 +1124,14 @@
 
   function recalc() {
     var open = 0;
+    var reference = 0;
     var anyInvalid = false;
     amountInputs.forEach(function (input) {
       var id = input.getAttribute("data-open-amount");
       var parsed = parseSatang(input.value);
       var cell = document.querySelector('[data-ledger-amount="' + id + '"]');
       var hint = document.getElementById("hint-" + id);
+      var refBaht = input.getAttribute("data-reference");
       if (parsed.invalid) anyInvalid = true;
       input.setAttribute("aria-invalid", parsed.invalid ? "true" : "false");
       if (hint) hint.hidden = !parsed.invalid;
@@ -1063,6 +1139,9 @@
         cell.textContent = parsed.empty || parsed.invalid ? "\u2014" : formatSatang(parsed.satang);
       }
       open += parsed.satang;
+      if (refBaht && !parsed.empty && !parsed.invalid && parsed.satang === Number(refBaht) * 100) {
+        reference += parsed.satang;
+      }
     });
     vendorInputs.forEach(function (input) {
       var id = input.getAttribute("data-open-vendor");
@@ -1072,50 +1151,47 @@
       cell.textContent = name === "" ? "\u2014" : name;
     });
 
-    var openBahtSatang = open;
-    var fixedSatang = FIXED * 100;
     var targetSatang = TARGET * 100;
-    var envelopeSatang = ENVELOPE * 100;
-    var spent = fixedSatang + openBahtSatang;
+    var spent = open;
     var remaining = targetSatang - spent;
-    var envLeft = envelopeSatang - openBahtSatang;
     var over = remaining < 0;
     var onTarget = remaining === 0;
 
     spentEl.textContent = formatSatang(spent);
     remainEl.textContent = formatSatang(remaining);
-    envEl.textContent = formatSatang(envLeft);
-    ledgerOpen.textContent = formatSatang(openBahtSatang);
+    refEl.textContent = formatSatang(reference);
     ledgerSpent.textContent = formatSatang(spent);
     ledgerRemain.textContent = formatSatang(remaining);
-    ledgerEnv.textContent = formatSatang(envLeft);
+    ledgerRef.textContent = formatSatang(reference);
 
     if (over) remainNote.textContent = "over the target";
     else if (onTarget) remainNote.textContent = "on the target";
     else remainNote.textContent = "inside the target";
 
-    if (over) envNote.textContent = "over the 260,500 envelope";
-    else if (onTarget) envNote.textContent = "envelope used in full";
-    else envNote.textContent = "of 260,500 still open";
+    if (reference === 0) refNote.textContent = "starting references replaced";
+    else if (reference === referenceBaseline) refNote.textContent = "photo and hair starting figures";
+    else refNote.textContent = "part of the starting references";
 
     setFlag(remainCard, over, onTarget);
-    setFlag(envCard, over, onTarget);
+    refCard.classList.toggle("is-ok", reference > 0 && !over);
+    refCard.classList.remove("is-over");
 
-    var pct = envelopeSatang === 0 ? 0 : (openBahtSatang / envelopeSatang) * 100;
+    var pct = targetSatang === 0 ? 0 : (spent / targetSatang) * 100;
     if (pct < 0) pct = 0;
     if (pct > 100) pct = 100;
     barFill.style.width = pct + "%";
     barFill.classList.toggle("is-over", over);
-    var openLabel = formatSatang(openBahtSatang);
     bar.setAttribute("aria-label", over
-      ? "Open lines are over the 260,500 envelope"
-      : "Open lines used: " + openLabel + " of 260,500");
+      ? "Spent is over the 400,000 target"
+      : "Spent " + formatSatang(spent) + " of 400,000");
 
-    var sentence = formatSatang(fixedSatang) + " locked + " + formatSatang(openBahtSatang) +
-      " open = " + formatSatang(spent) + " spent. " + formatSatang(remaining) + " left of 400,000.";
+    var sentence = formatSatang(spent) + " spent. " + formatSatang(remaining) + " left of 400,000.";
+    if (reference > 0) {
+      sentence += " " + formatSatang(reference) + " of that spend is still a starting reference.";
+    }
     if (anyInvalid) sentence += " One amount needs a number.";
     formulaEl.textContent = sentence;
-    say(sentence + " Natasha envelope remaining " + formatSatang(envLeft) + " of 260,500.");
+    say(sentence);
   }
 
   amountInputs.forEach(function (input) {
@@ -1125,10 +1201,14 @@
     input.addEventListener("input", recalc);
   });
 
+  function fieldDefault(input) {
+    return input.getAttribute("data-default") || "";
+  }
+
   function dirty() {
     var found = false;
-    amountInputs.forEach(function (input) { if (input.value.trim() !== "") found = true; });
-    vendorInputs.forEach(function (input) { if (input.value.trim() !== "") found = true; });
+    amountInputs.forEach(function (input) { if (input.value !== fieldDefault(input)) found = true; });
+    vendorInputs.forEach(function (input) { if (input.value !== fieldDefault(input)) found = true; });
     return found;
   }
 
@@ -1142,8 +1222,8 @@
   }
 
   function clearOpen() {
-    amountInputs.forEach(function (input) { input.value = ""; });
-    vendorInputs.forEach(function (input) { input.value = ""; });
+    amountInputs.forEach(function (input) { input.value = fieldDefault(input); });
+    vendorInputs.forEach(function (input) { input.value = fieldDefault(input); });
     disarmReset();
     recalc();
   }
@@ -1159,7 +1239,7 @@
     }
     resetBtn.dataset.armed = "1";
     resetBtn.setAttribute("aria-pressed", "true");
-    resetBtn.textContent = "Clear vendor names and amounts?";
+    resetBtn.textContent = "Clear your figures and restore the photo and hair references?";
     resetKeep.hidden = false;
   });
 
