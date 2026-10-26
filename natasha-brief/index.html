@@ -613,28 +613,28 @@
       </div>
       <div class="stat">
         <span class="k">Spent</span>
-        <strong id="spent">139,500</strong>
+        <strong id="spent">157,200</strong>
         <span class="status">all lines on this sheet</span>
       </div>
       <div class="stat is-ok" id="remain-card">
         <span class="k">Remaining</span>
-        <strong id="remain">260,500</strong>
+        <strong id="remain">242,800</strong>
         <span class="status" id="remain-note">inside the target</span>
       </div>
       <div class="stat" id="ref-card">
         <span class="k">Reference still in play</span>
-        <strong id="reference">139,500</strong>
+        <strong id="reference">157,200</strong>
         <span class="status" id="ref-note">photo and hair starting figures</span>
       </div>
     </div>
-    <div class="bar" id="bar" role="img" aria-label="Spent 139,500 of 400,000">
-      <span id="bar-fill" style="width: 34.875%"></span>
+    <div class="bar" id="bar" role="img" aria-label="Spent 157,200 of 400,000">
+      <span id="bar-fill" style="width: 39.3%"></span>
     </div>
   </section>
   <div class="tally-more">
-    <p class="formula" id="formula">139,500 spent. 260,500 left of 400,000. 139,500 of that spend is still a starting reference.</p>
+    <p class="formula" id="formula">157,200 spent. 242,800 left of 400,000. 157,200 of that spend is still a starting reference.</p>
     <p class="sr-only" id="live" aria-live="polite" aria-atomic="true"></p>
-    <noscript><p class="band">The running total needs JavaScript. The photo and hair boxes start at 115,000 and 24,500 (139,500 together), which leaves 260,500 of the 400,000 target until those figures are changed.</p></noscript>
+    <noscript><p class="band">The running total needs JavaScript. The photo and hair boxes start at 115,000 and 42,200 (157,200 together), which leaves 242,800 of the 400,000 target until those figures are changed.</p></noscript>
     <div class="tally-actions">
       <button type="button" id="print-btn">Print / Save as PDF</button>
       <button type="button" id="reset">Reset open fields</button>
@@ -688,14 +688,13 @@
       <p class="desc"><strong>The filter is East Asian bridal experience.</strong> The artist needs a strong feel for Hong Kong and Chinese features, and for soft romantic looks that photograph well outdoors. That matters more than keeping the reference name below.</p>
       <p class="desc">If you know someone who meets that bar and can come in under the reference, propose them. A lower figure here unlocks room in the 400,000.</p>
       <div class="callout">
-        <p><strong>Reference only, not locked.</strong> Suparat Taweekit at 24,500 is a soft starting figure: makeup + hair at 3,500 THB a person. Bride, two looks (2 × 3,500) + two mothers + two younger sisters + one older sister = 7 × 3,500.</p>
+        <p><strong>Reference only, not locked.</strong> Suparat Taweekit at 42,200 is a soft starting figure: 27,000 + 3,500 × 4 + 1,200 × 1.</p>
       </div>
       <ul class="split">
-        <li><span>Bride, 2 looks (2 × 3,500)</span><span>7,000</span></li>
-        <li><span>Two mothers (2 × 3,500)</span><span>7,000</span></li>
-        <li><span>Two younger sisters (2 × 3,500)</span><span>7,000</span></li>
-        <li><span>One older sister (1 × 3,500)</span><span>3,500</span></li>
-        <li><span>7 × 3,500 reference</span><span>24,500</span></li>
+        <li><span>Bridal package</span><span>27,000</span></li>
+        <li><span>Four guests, full makeup + hair (mothers and sisters, 3,500 × 4)</span><span>14,000</span></li>
+        <li><span>One sister, hair styling only (1,200 × 1)</span><span>1,200</span></li>
+        <li><span>27,000 + 3,500 × 4 + 1,200 × 1</span><span>42,200</span></li>
       </ul>
       <div class="fields">
         <label>
@@ -705,7 +704,7 @@
         </label>
         <label>
           <span>Amount (THB)</span>
-          <input type="text" inputmode="decimal" name="amount-hmu" autocomplete="off" autocorrect="off" spellcheck="false" data-open-amount="hmu" data-default="24,500" data-reference="24500" value="24,500" aria-describedby="hint-hmu">
+          <input type="text" inputmode="decimal" name="amount-hmu" autocomplete="off" autocorrect="off" spellcheck="false" data-open-amount="hmu" data-default="42,200" data-reference="42200" value="42,200" aria-describedby="hint-hmu">
           <small class="hint" id="hint-hmu" hidden>Use digits only.</small>
         </label>
       </div>
@@ -969,7 +968,7 @@
         <tr>
           <th scope="row">Hair &amp; makeup <span class="tag tag-ref">Reference</span></th>
           <td data-ledger-vendor="hmu">Suparat Taweekit</td>
-          <td class="num" data-ledger-amount="hmu">24,500</td>
+          <td class="num" data-ledger-amount="hmu">42,200</td>
         </tr>
         <tr>
           <th scope="row">Ceremony florals</th>
@@ -1020,7 +1019,7 @@
       <tfoot>
         <tr>
           <th scope="row" colspan="2">Spent</th>
-          <td class="num" id="ledger-spent">139,500</td>
+          <td class="num" id="ledger-spent">157,200</td>
         </tr>
         <tr>
           <th scope="row" colspan="2">Target</th>
@@ -1028,11 +1027,11 @@
         </tr>
         <tr>
           <th scope="row" colspan="2">Remaining</th>
-          <td class="num" id="ledger-remain">260,500</td>
+          <td class="num" id="ledger-remain">242,800</td>
         </tr>
         <tr>
           <th scope="row" colspan="2">Reference still in play</th>
-          <td class="num" id="ledger-ref">139,500</td>
+          <td class="num" id="ledger-ref">157,200</td>
         </tr>
       </tfoot>
     </table>
@@ -1057,6 +1056,11 @@
 
   var amountInputs = document.querySelectorAll("[data-open-amount]");
   var vendorInputs = document.querySelectorAll("[data-open-vendor]");
+  var referenceBaseline = 0;
+  amountInputs.forEach(function (input) {
+    var refBaht = Number(input.getAttribute("data-reference"));
+    if (refBaht) referenceBaseline += refBaht * 100;
+  });
   var spentEl = document.getElementById("spent");
   var remainEl = document.getElementById("remain");
   var remainNote = document.getElementById("remain-note");
@@ -1165,7 +1169,7 @@
     else remainNote.textContent = "inside the target";
 
     if (reference === 0) refNote.textContent = "starting references replaced";
-    else if (reference === (115000 + 24500) * 100) refNote.textContent = "photo and hair starting figures";
+    else if (reference === referenceBaseline) refNote.textContent = "photo and hair starting figures";
     else refNote.textContent = "part of the starting references";
 
     setFlag(remainCard, over, onTarget);
